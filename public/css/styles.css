@@ -15,7 +15,15 @@
     color: #1abc9c !important;
 }
 
-.footer-padding {
+.navbar-nav {
+    flex-direction: row;
+  }
+
+.header-link {
+    font-size: 110%;
+}
+
+  .footer-padding {
 	padding-bottom: 60px;
 }
 
