@@ -21,19 +21,33 @@ let posts = [];
 
 app.get("/", function(req, res) {
   res.render("home", {posts: posts});
-})
+});
 
 app.get("/about", function(req, res) {
   res.render("about", {aboutContent: aboutContent})
-})
+});
 
 app.get("/contact", function(req, res) {
   res.render("contact", {contactContent: contactContent})
-})
+});
 
 app.get("/compose", function(req, res) {
   res.render("compose")
-})
+});
+
+app.get("/posts/:postName", function(req, res) {
+  const requestedTitle = req.params.postName.lower();
+
+  posts.forEach(function(post) {
+    const storeTitle = post.postTitle.lower();
+
+    if (storeTitle === requestedTitle){
+      console.log("Match Found!");
+    } else {
+      console.log("Not a match!")
+    }
+  })
+});
 
 app.post("/compose", function(req, res) {
   const newPost = {
@@ -43,7 +57,7 @@ app.post("/compose", function(req, res) {
   posts.push(newPost);
   res.redirect("/");
 
-  })
+  });
 
 
 
